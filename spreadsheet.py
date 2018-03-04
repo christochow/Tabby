@@ -7,7 +7,7 @@ class Sheet:
         creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
         self.client = gspread.authorize(creds)
         sheet = self.client.open("Test").sheet1
-        sheet_name = input("Enter your house's name")
+        sheet_name = input("Enter your house's name ")
         list_of_sheets = sheet.row_values(1)
         if sheet_name not in list_of_sheets:
             new_row = [sheet_name]
@@ -25,8 +25,8 @@ class Sheet:
         numOfMembers = int(input ("How many housemates "))
         i=0
         while ( i<numOfMembers):
-            sheet.update_cell(1,i+2,names[i])
-            sheet.update_cell (i+2,1,names[i])
+            self.sheet.update_cell(1,i+2,names[i])
+            self.sheet.update_cell (i+2,1,names[i])
             i=i+1
         list_of_hashes = sheet.get_all_records()
         print(list_of_hashes)
