@@ -61,11 +61,13 @@ class Sheet:
             member = self.names[i]
             if(member==name):
                 continue
-            if(len(list[i])!=0 or list[i]!='0'):
+            if(len(list[i])!=0):
                 if(int(list[i])>0):
                     result.append(member+" owes "+name+" "+ list[i])
-                else:
+                elif(int(list[i])<0):
                     result.append(name+" owes "+member+" "+ list[i][1:])
+                else:
+                    result.append(member+" does not owe you any money!")
             else:
                     result.append(member+" does not owe you any money!")
         print (result)
@@ -74,4 +76,4 @@ if __name__ == "__main__":
     sh = Sheet()
     #sh.set_Debt("conrad","chris",200)
     #sh.add_housemate("rebecca")
-    #sh.get_tabs("conrad")
+    sh.get_tabs("conrad")
